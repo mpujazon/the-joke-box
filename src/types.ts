@@ -19,3 +19,9 @@ export interface WeatherData{
     };
     name: string;
 }
+
+export interface ReportedJoke{
+    joke: string;
+    score: number;
+    date: string;
+}
