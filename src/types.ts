@@ -20,8 +20,9 @@ export interface WeatherData{
     name: string;
 }
 
-export interface ReportedJoke{
+export interface Joke{
+    id: string;
     joke: string;
-    score: number;
-    date: string;
+    score?: number;
+    date?: string;
 }
