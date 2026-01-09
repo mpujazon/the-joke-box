@@ -1,13 +1,3 @@
-export interface DadJokeData{
-    id: string;
-    joke: string;
-}
-
-export interface ChuckJokeData{
-    id: string;
-    value: string;
-}
-
 export interface WeatherData{
     weather:{
         main: string;
@@ -22,7 +12,7 @@ export interface WeatherData{
 
 export interface Joke{
     id: string;
-    joke: string;
+    value: string;
     score?: number;
     date?: string;
 }

@@ -1,6 +1,6 @@
-import type { ChuckJokeData, DadJokeData } from "../types";
+import type { Joke } from "../types";
 
-export const fetchDadJoke = async (): Promise<DadJokeData> => {
+export const fetchDadJoke = async (): Promise<Joke> => {
     const url = 'https://icanhazdadjoke.com/';
     const response = await fetch(url, {headers:{"Accept": "application/json"}});
     
@@ -9,10 +9,15 @@ export const fetchDadJoke = async (): Promise<DadJokeData> => {
     }
 
     const data = await response.json();
-    return data;
+
+    const joke = {
+        id: data.id,
+        value: data.joke
+    }
+    return joke;
 }
 
-export const fetchChuckJoke = async (): Promise<ChuckJokeData> => {
+export const fetchChuckJoke = async (): Promise<Joke> => {
     const url = 'https://api.chucknorris.io/jokes/random';
     const response = await fetch(url);
 
@@ -21,5 +26,10 @@ export const fetchChuckJoke = async (): Promise<ChuckJokeData> => {
     }
 
     const data = await response.json();
-    return data;
+
+    const joke = {
+        id: data.id,
+        value: data.value
+    }
+    return joke;
 }
