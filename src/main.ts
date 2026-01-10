@@ -9,6 +9,7 @@ const init = async() => {
         ]).then(results => results.map( result=>
             result.status === 'fulfilled'? result.value : null
         ));
+        console.log(joke, weather);
         // renderJoke(joke);
         // renderWeather(weather);
     } catch (error) {
