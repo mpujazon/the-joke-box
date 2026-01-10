@@ -4,6 +4,7 @@ import type { Joke, WeatherData } from "./types";
 import { loadWeather } from "./weather/weather.logic"
 import { renderWeather } from "./weather/weather.ui";
 
+
 const init = async() => {
     try {
         const [jokeResult, weatherResult] = await Promise.allSettled([loadJoke(), loadWeather()]);
@@ -17,5 +18,14 @@ const init = async() => {
         console.error("Error:", error);
     }
 }
+
+const loadNextJoke = async() => {
+    //if(score)reportJoke();
+    const joke = await loadJoke();
+    renderJoke(joke);
+}
+
+const nextJokeBtn = document.getElementById('next-joke-btn');
+nextJokeBtn?.addEventListener('click', loadNextJoke);
 
 document.addEventListener("DOMContentLoaded", init);
