@@ -5,7 +5,7 @@ export const renderJoke = (joke: Joke) => {
     jokeValueEl? jokeValueEl.textContent = joke.value : '';
 }
 
-export const selectScore = (event: Event): Number => {
+export const selectScore = (event: Event): number => {
     deselectScore();
 
     const scoreIcon = event.target as Element;
@@ -16,7 +16,7 @@ export const selectScore = (event: Event): Number => {
     return scoreValue;
 }
 
-export const deselectScore = (): Number => {
+export const deselectScore = (): number => {
     const scoreButtons = document.getElementById('score-buttons');
     Array.from(scoreButtons?.children || []).forEach(icon => {
         (icon as Element).classList.remove('selected');
