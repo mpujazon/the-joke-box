@@ -31,8 +31,6 @@ const loadNextJoke = async() => {
             date: new Date().toISOString()
         }
         jokesArr = reportJoke(jokesArr, jokeToReport);
-        console.log(jokesArr);
-        
     }
     joke = await loadJoke();
     renderJoke(joke);
