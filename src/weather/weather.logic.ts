@@ -26,6 +26,12 @@ const getLocation = async (): Promise<LocationCoords> => {
             alert("Unable to retrieve your location.");
             reject(err);
         };
-        navigator.geolocation.getCurrentPosition(success, error);
+
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+        navigator.geolocation.getCurrentPosition(success, error, options);
     });
 };
