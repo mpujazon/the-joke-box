@@ -16,3 +16,5 @@ export interface Joke{
     score?: number;
     date?: string;
 }
+
+export type JokesArr = Joke[];
