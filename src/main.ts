@@ -1,9 +1,10 @@
 import { loadJoke } from "./jokes/jokes.logic"
-import { renderJoke } from "./jokes/jokes.ui";
+import { deselectScore, renderJoke, selectScore } from "./jokes/jokes.ui";
 import type { Joke, WeatherData } from "./types";
 import { loadWeather } from "./weather/weather.logic"
 import { renderWeather } from "./weather/weather.ui";
 
+let score: Number;
 
 const init = async() => {
     try {
@@ -24,6 +25,20 @@ const loadNextJoke = async() => {
     const joke = await loadJoke();
     renderJoke(joke);
 }
+
+const scoreButtons = document.getElementById('score-buttons');
+
+scoreButtons?.addEventListener('click', (event: Event) => {
+    score = selectScore(event);
+});
+
+document.addEventListener('click', (event: Event) => {
+    const target = event.target as HTMLElement;
+    
+    if (!scoreButtons?.contains(target)) {
+        score = deselectScore();
+    }
+});
 
 const nextJokeBtn = document.getElementById('next-joke-btn');
 nextJokeBtn?.addEventListener('click', loadNextJoke);
