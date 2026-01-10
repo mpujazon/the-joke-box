@@ -1,4 +1,5 @@
 import { loadJoke } from "./jokes/jokes.logic"
+import { renderJoke } from "./jokes/jokes.ui";
 import type { Joke, WeatherData } from "./types";
 import { loadWeather } from "./weather/weather.logic"
 import { renderWeather } from "./weather/weather.ui";
@@ -10,9 +11,8 @@ const init = async() => {
         const joke: Joke | null = jokeResult.status === 'fulfilled' ? jokeResult.value : null;
         const weather: WeatherData | null = weatherResult.status === 'fulfilled' ? weatherResult.value : null;
 
-        console.log(joke, weather);
         weather? renderWeather(weather) : '';
-        // renderJoke(joke);
+        joke? renderJoke(joke) : '';
     } catch (error) {
         console.error("Error:", error);
     }
