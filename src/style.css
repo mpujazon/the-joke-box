@@ -10,11 +10,24 @@ body{
   font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
+  color: white;
+  background-color: #D3DAD9;
+}
+
+main{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #weather{
+  position: absolute;
   top: 1rem;
   left: 1rem;
   display: flex;
@@ -22,6 +35,7 @@ body{
   align-items: center;
   gap: 1rem;
   filter: drop-shadow(10px 5px 8px gray);
+  color: black;
 }
 
 #weather__icon{
@@ -39,4 +53,65 @@ body{
   font-size: 1.25rem;
   text-align: center;
   font-weight: bold;
+}
+
+#joke-container{
+  width: 90%;
+  padding: 1.5rem;
+  width: 80%;
+  min-height: 260px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  background: #833AB4;
+  background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40% ;
+  h1{
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  p{
+    font-size: 1.25;
+  }
+}
+#score-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+  img{
+    max-width: 2.5rem;
+    transition: transform ease-in-out .1s;
+    &:hover{
+      transform: scale(1.2);
+      filter: drop-shadow(0px 5px 10px rgb(255, 255, 255));
+      cursor: pointer;
+    }
+  }
+  img.selected{
+      transform: scale(1.2);
+      filter: drop-shadow(0px 5px 10px rgb(255, 255, 255));
+      cursor: pointer;
+  }
+}
+
+#next-joke-btn{
+  background-color: #D3DAD9;
+  color: #6f22a3;
+  border: 0;
+  padding: .75em;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all ease-in-out .1;
+  &:hover{
+    background-color: #6f22a36d;
+    color: white;
+    outline: #D3DAD9 1.5px solid;
+    cursor: pointer;
+  }
 }
