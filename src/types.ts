@@ -7,6 +7,9 @@ export interface WeatherData{
     main:{
         temp: number;
     };
+    sys:{
+        country: string;
+    }
     name: string;
 }
 
