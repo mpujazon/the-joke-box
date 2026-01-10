@@ -56,7 +56,6 @@ main{
 }
 
 #joke-container{
-  width: 90%;
   padding: 1.5rem;
   width: 80%;
   min-height: 260px;
@@ -108,10 +107,42 @@ main{
   font-weight: bold;
   border-radius: 8px;
   transition: all ease-in-out .1;
+  margin-top: 1rem;
   &:hover{
     background-color: #6f22a36d;
     color: white;
     outline: #D3DAD9 1.5px solid;
     cursor: pointer;
+  }
+}
+
+@media (min-width: 500px) {
+  #joke-container{
+    min-height: 400px;
+    max-width: 450px;
+  }
+}
+
+@media (min-width: 1024px){
+  #joke-container{
+    min-height: 500px;
+    max-width: 500px;
+    h1{
+      font-size: 1.75rem;
+      margin: 0;
+    }
+    p{
+      font-size: 1.3rem;
+    }
+    button{
+      font-size: 1rem;
+    }
+  }
+
+  #score-buttons{
+    gap: 1.5rem;
+    img{
+      max-width: 3rem;
+    }
   }
 }
