@@ -1,13 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Joke Box</title>
-    <link rel="stylesheet" href="./src/style.css">
-  </head>
-  <body>
-    <script src="./src/main.ts" type="module"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Joke Box</title>
+        <link rel="stylesheet" href="./src/style.css">
+    </head>
+    <body>
+        <main>
+            <section id="weather-container">
+                <img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Current Weather Icon">
+                <div class="vertical-separator"></div>
+                <span id="temperature">21ºC</span>
+            </section>
+            <section id="joke-container">
+                <h1>Ready to smile?</h1>
+                <p id="joke-value">
+                    Scientists finally did a study on forks. It's about tine!
+                </p>
+                <div id="score-buttons">
+                    <img id="score-0" src="/icons/sad-face.svg" alt="Sad Face">
+                    <img id="score-1" src="/icons/poker-face.svg" alt="Poker Face">
+                    <img id="score-2" src="/icons/happy-face.svg" alt="Happy Face">
+                </div>
+                <button id="next-joke-btn">Next joke!</button>
+            </section>
+        </main>
+        <script src="./src/main.ts" type="module"></script>
+    </body>
 </html>

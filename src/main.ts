@@ -3,13 +3,12 @@ import { loadWeather } from "./weather/weather.logic"
 
 const init = async() => {
     try {
-        const [joke, weather] = await Promise.allSettled([
-            loadJoke(), 
-            loadWeather()
-        ]).then(results => results.map( result=>
-            result.status === 'fulfilled'? result.value : null
-        ));
-
+        // const [joke, weather] = await Promise.allSettled([
+        //     loadJoke(), 
+        //     loadWeather()
+        // ]).then(results => results.map( result=>
+        //     result.status === 'fulfilled'? result.value : null
+        // ));
         //renderJoke(joke);
         //renderWeather(weather);
     } catch (error) {
