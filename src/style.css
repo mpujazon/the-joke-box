@@ -27,15 +27,25 @@ main{
 }
 
 #weather{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 1rem;
   left: 1rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 1rem;
   filter: drop-shadow(10px 5px 8px gray);
   color: black;
+}
+
+#weather__text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  #weather__city{
+    font-size: .8rem;
+  }
 }
 
 #weather__icon{
