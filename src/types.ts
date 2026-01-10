@@ -10,6 +10,11 @@ export interface WeatherData{
     name: string;
 }
 
+export interface LocationCoords{
+    lat: number;
+    lon: number;
+}
+
 export interface Joke{
     id: string;
     value: string;
