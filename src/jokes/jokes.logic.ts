@@ -1,11 +1,12 @@
 import type { Joke, JokesArr } from "../types";
 import { fetchChuckJoke, fetchDadJoke } from "./jokes.api";
 
-export const loadJoke = async (): Promise<Joke> => {
+export const loadJoke = async (apiToCall:boolean): Promise<Joke> => {
     const fetchFunctions = [fetchDadJoke, fetchChuckJoke];
-    const randomIndex = Math.round(Math.random());
-
-    const joke = await fetchFunctions[randomIndex]();
+    let joke: Joke;
+    apiToCall?
+        joke = await fetchFunctions[0]()
+        : joke = await fetchFunctions[1]();
     return joke;
 }
 

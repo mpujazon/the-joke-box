@@ -7,10 +7,12 @@ import { renderWeather } from "./weather/weather.ui";
 let score: number = -1;
 let joke: Joke | null;
 let jokesArr: JokesArr = [];
+let lastApiCall: boolean = false;
 
 const init = async() => {
     try {
-        const [jokeResult, weatherResult] = await Promise.allSettled([loadJoke(), loadWeather()]);
+        const [jokeResult, weatherResult] = await Promise.allSettled([loadJoke(lastApiCall), loadWeather()]);
+        lastApiCall = !lastApiCall;
 
         joke = jokeResult.status === 'fulfilled' ? jokeResult.value : null;
         const weather: WeatherData | null = weatherResult.status === 'fulfilled' ? weatherResult.value : null;
@@ -32,7 +34,8 @@ const loadNextJoke = async() => {
         }
         jokesArr = reportJoke(jokesArr, jokeToReport);
     }
-    joke = await loadJoke();
+    joke = await loadJoke(lastApiCall);
+    lastApiCall = !lastApiCall;
     renderJoke(joke);
 }
 
