@@ -87,12 +87,14 @@ main{
   p{
     font-size: 1.25;
   }
+  animation: float 6s ease-in-out infinite alternate-reverse;
 }
 .blob-decoration{
   position: absolute;
   background: #833AB4;
   background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
   border-radius: 70% 30% 30% 70% / 60% 40% 60% 40% ;
+  animation: float 4.5s ease-in-out infinite alternate-reverse;
 }
 
 #blob-decoration-1{
@@ -107,6 +109,15 @@ main{
   width: 5rem;
   bottom: -5rem;
   left: -3rem;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  /* Antes eran 15px, ahora solo 3px */
+  25% { transform: translate(4px, -4px); } 
+  50% { transform: translate(-3px, 3px); }
+  75% { transform: translate(-5px, -2px); }
+  100% { transform: translate(3px, 3px); }
 }
 
 #score-buttons{
@@ -229,7 +240,6 @@ dialog::backdrop {
     border-bottom-right-radius: 12px;
 }
 
-/* Botón de cerrar */
 #close-history-btn {
     padding: 10px 20px;
     background-color: #ff4757;
@@ -244,7 +254,6 @@ dialog::backdrop {
     background-color: #ff6b81;
 }
 
-/* Definición de la animación */
 @keyframes show {
     from {
         opacity: 0;
