@@ -4,7 +4,7 @@
 
 TypeScript + Vite web app that shows random jokes and the user’s current weather. It consumes two public joke APIs and the OpenWeather API, lets you score each joke, and keeps an in-memory history.
 
-![Project Demo](/public/demo.webp "Project Demo")
+![Project Demo](/public/demo.gif "Project Demo")
 
 ## Project Structure
 
@@ -67,9 +67,11 @@ Or try this web on [Vercel Deploy](https://the-joke-box.vercel.app).
 - Shows a random joke from icanhazdadjoke or Chuck Norris [src/jokes/jokes.logic.ts](src/jokes/jokes.logic.ts)
 - "Next joke!" button fetches a new joke and stores the previous one with score and timestamp [src/main.ts](src/main.ts)
 - Clickable scoring system with deselect when clicking outside the icons [src/jokes/jokes.ui.ts](src/jokes/jokes.ui.ts)
+- **View History**: Modal displaying all previously scored jokes with timestamps and ratings [src/jokes/jokes.ui.ts](src/jokes/jokes.ui.ts)
 - Retrieves user geolocation and fetches weather from OpenWeather [src/weather/weather.logic.ts](src/weather/weather.logic.ts)
 - Renders icon, temperature in ºC, and city/country header [src/weather/weather.ui.ts](src/weather/weather.ui.ts)
-- Gradient styling, decorative blobs, and responsive behavior [src/style.css](src/style.css)
+- **Animated Blobs**: Decorative blob elements with smooth floating keyframe animations [src/style.css](src/style.css)
+- Gradient styling, responsive behavior, and smooth UI transitions [src/style.css](src/style.css)
 
 ## Learnings
 
