@@ -24,3 +24,13 @@ export const deselectScore = (): number => {
     
     return -1;
 }
+
+const modal = document.getElementById('history-modal') as HTMLDialogElement;
+
+export const renderJokesHistory = () => {
+    modal? modal.showModal() : '';
+}
+
+export const closeJokesHistory = () => {
+    modal? modal.close() : '';
+}
