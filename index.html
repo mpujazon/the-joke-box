@@ -23,14 +23,28 @@
                     Scientists finally did a study on forks. It's about tine!
                 </p>
                 <div id="score-buttons">
-                    <img value="0" id="score-0" src="/icons/sad-face.svg" alt="Sad Face">
-                    <img value="1" id="score-1" src="/icons/poker-face.svg" alt="Poker Face">
-                    <img value="2" id="score-2" src="/icons/happy-face.svg" alt="Happy Face">
+                    <img value="0" id="score-0" src="/icons/0.svg" alt="Sad Face">
+                    <img value="1" id="score-1" src="/icons/1.svg" alt="Poker Face">
+                    <img value="2" id="score-2" src="/icons/2.svg" alt="Happy Face">
                 </div>
-                <button id="next-joke-btn">Next joke!</button>
+                <div class="buttons-group">
+                    <button id="next-joke-btn" class="btn">Next joke!</button>
+                    <button id="open-history-btn" class="btn">View history</button>
+                </div>
                 <div id="blob-decoration-1" class="blob-decoration"></div>
                 <div id="blob-decoration-2" class="blob-decoration"></div>
             </section>
+            <dialog id="history-modal">
+                <div class="modal-header">
+                    <h2>Scored Jokes History</h2>
+                </div>
+                
+                <div id="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button id="close-history-btn" class="btn">Close</button>
+                </div>
+            </dialog>
         </main>
         <script src="./src/main.ts" type="module"></script>
     </body>

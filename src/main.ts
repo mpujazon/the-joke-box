@@ -1,5 +1,5 @@
 import { loadJoke, reportJoke } from "./jokes/jokes.logic"
-import { deselectScore, renderJoke, selectScore } from "./jokes/jokes.ui";
+import { closeJokesHistory, deselectScore, renderJoke, renderJokesHistory, selectScore } from "./jokes/jokes.ui";
 import type { Joke, JokesArr, WeatherData } from "./types";
 import { loadWeather } from "./weather/weather.logic"
 import { renderWeather } from "./weather/weather.ui";
@@ -50,7 +50,15 @@ document.addEventListener('click', (event: Event) => {
     }
 });
 
-const nextJokeBtn = document.getElementById('next-joke-btn');
+const nextJokeBtn = document.getElementById('next-joke-btn') as HTMLButtonElement;
 nextJokeBtn?.addEventListener('click', loadNextJoke);
 
 document.addEventListener("DOMContentLoaded", init);
+
+const openHistoryButton = document.getElementById('open-history-btn') as HTMLButtonElement;
+openHistoryButton?.addEventListener('click', ()=> {
+    if(jokesArr.length !== 0) renderJokesHistory(jokesArr);
+})
+
+const closeHistoryButton = document.getElementById('close-history-btn') as HTMLButtonElement;
+closeHistoryButton?.addEventListener('click', closeJokesHistory);
