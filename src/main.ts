@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 const openHistoryButton = document.getElementById('open-history-btn') as HTMLButtonElement;
 openHistoryButton?.addEventListener('click', ()=> {
-    renderJokesHistory();
+    if(jokesArr.length !== 0) renderJokesHistory(jokesArr);
 })
 
 const closeHistoryButton = document.getElementById('close-history-btn') as HTMLButtonElement;
