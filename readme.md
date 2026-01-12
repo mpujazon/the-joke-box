@@ -64,10 +64,10 @@ Or try this web on [Vercel Deploy](https://the-joke-box.vercel.app).
 
 ## Features
 
-- Shows a random joke from icanhazdadjoke or Chuck Norris [src/jokes/jokes.logic.ts](src/jokes/jokes.logic.ts)
+- **Alternating Joke APIs**: Shows a random joke from icanhazdadjoke or Chuck Norris APIs, alternating equally between them on each call [src/jokes/jokes.logic.ts](src/jokes/jokes.logic.ts)
 - "Next joke!" button fetches a new joke and stores the previous one with score and timestamp [src/main.ts](src/main.ts)
 - Clickable scoring system with deselect when clicking outside the icons [src/jokes/jokes.ui.ts](src/jokes/jokes.ui.ts)
-- **View History**: Modal displaying all previously scored jokes with timestamps and ratings [src/jokes/jokes.ui.ts](src/jokes/jokes.ui.ts)
+- **View History**: Modal displaying all previously scored jokes with timestamps and ratings, preventing duplicate jokes [src/jokes/jokes.ui.ts](src/jokes/jokes.ui.ts)
 - Retrieves user geolocation and fetches weather from OpenWeather [src/weather/weather.logic.ts](src/weather/weather.logic.ts)
 - Renders icon, temperature in ºC, and city/country header [src/weather/weather.ui.ts](src/weather/weather.ui.ts)
 - **Animated Blobs**: Decorative blob elements with smooth floating keyframe animations [src/style.css](src/style.css)
