@@ -9,7 +9,8 @@ export const apiRequest = async <TResponse, TBody = unknown>(
     const { method = "GET", body, headers = {}, query} = options;
 
     const queryString = buildQueryString(query);
-
+    console.log(`${endpoint}${queryString}`);
+    
     const response = await fetch(`${endpoint}${queryString}`, {
         method,
         headers: {

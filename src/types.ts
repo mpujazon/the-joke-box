@@ -21,7 +21,6 @@ export interface LocationCoords{
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 export type QueryParams = Record<string, string | number | boolean | undefined>;
 
-
 export interface RequestOptions<TBody> {
     method?: HttpMethod;
     body?: TBody;
