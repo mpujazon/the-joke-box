@@ -23,7 +23,7 @@ const init = async() => {
 }
 
 const loadNextJoke = async() => {
-    if (score !== -1 && joke !== null){
+    if (joke){
         const jokeToReport: Joke = {
             value: joke.value,
             score: score,
