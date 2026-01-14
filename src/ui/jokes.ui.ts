@@ -30,6 +30,7 @@ const modal = document.getElementById('history-modal') as HTMLDialogElement;
 export const renderJokesHistory = (jokesArr: JokesArr) => {
     const modalBody = document.getElementById('modal-body');
     if(modalBody){
+        jokesArr.reverse();
         modalBody.innerHTML = '';
         jokesArr.forEach(joke => {
             let scored_at: String = 'Date Error';
