@@ -1,8 +1,8 @@
-import { loadJoke, reportJoke } from "./jokes/jokes.logic"
-import { closeJokesHistory, deselectScore, renderJoke, renderJokesHistory, selectScore } from "./jokes/jokes.ui";
+import { closeJokesHistory, deselectScore, renderJoke, renderJokesHistory, selectScore } from "./ui/jokes.ui";
 import type { Joke, JokesArr, WeatherData } from "./types";
-import { loadWeather } from "./weather/weather.logic"
-import { renderWeather } from "./weather/weather.ui";
+import { renderWeather } from "./ui/weather.ui";
+import { jokesService } from "./services/jokesService";
+import { weatherService } from "./services/weatherService";
 
 let score: number = -1;
 let joke: Joke | null;
@@ -10,7 +10,7 @@ let jokesArr: JokesArr = [];
 
 const init = async() => {
     try {
-        const [jokeResult, weatherResult] = await Promise.allSettled([loadJoke(), loadWeather()]);
+        const [jokeResult, weatherResult] = await Promise.allSettled([jokesService.loadJoke(), weatherService.loadWeather()]);
 
         joke = jokeResult.status === 'fulfilled' ? jokeResult.value : null;
         const weather: WeatherData | null = weatherResult.status === 'fulfilled' ? weatherResult.value : null;
@@ -25,14 +25,13 @@ const init = async() => {
 const loadNextJoke = async() => {
     if (score !== -1 && joke !== null){
         const jokeToReport: Joke = {
-            id: joke.id,
             value: joke.value,
             score: score,
             date: new Date().toISOString()
         }
-        jokesArr = reportJoke(jokesArr, jokeToReport);
+        jokesArr = jokesService.reportJoke(jokesArr, jokeToReport);
     }
-    joke = await loadJoke();
+    joke = await jokesService.loadJoke();
     renderJoke(joke);
 }
 
