@@ -1,14 +1,6 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL ?? '';
+import type { QueryParams, RequestOptions } from "../types";
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
-type QueryParams = Record<string, string | number | boolean | undefined>;
 
-interface RequestOptions<TBody> {
-    method?: HttpMethod;
-    body?: TBody;
-    headers?: Record<string, string>;
-    query?: QueryParams;
-}
 
 export const apiRequest = async <TResponse, TBody = unknown>(
     endpoint: string,
@@ -21,7 +13,7 @@ export const apiRequest = async <TResponse, TBody = unknown>(
     const response = await fetch(`${endpoint}${queryString}`, {
         method,
         headers: {
-            "Content-Type": "application/json",
+            "Accept": "application/json",
             ...headers,
         },
         body: body ? JSON.stringify(body) : undefined,

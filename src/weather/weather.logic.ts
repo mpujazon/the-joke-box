@@ -1,5 +1,5 @@
 import type { LocationCoords, WeatherData } from "../types";
-import { fetchWeather } from "./weather.api";
+import { fetchWeather } from "./weather.api.ts";
 
 export const loadWeather = async(): Promise<WeatherData> => {
     const coords: LocationCoords = await getLocation();
@@ -9,7 +9,7 @@ export const loadWeather = async(): Promise<WeatherData> => {
 
 const getLocation = async (): Promise<LocationCoords> => {
     return new Promise((resolve,reject)=>{
-        if(!navigator.geolocation){
+        if(!navigator.geolocation){   
             reject(new Error("Geolocation not supported"));
             return;
         }
