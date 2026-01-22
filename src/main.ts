@@ -1,4 +1,4 @@
-import { closeJokesHistory, deselectScore, renderJoke, renderJokesHistory, selectScore } from "./ui/jokes.ui";
+import { closeJokesHistory, deselectScore, hideLoading, renderJoke, renderJokesHistory, selectScore, showLoading } from "./ui/jokes.ui";
 import type { Joke, JokesArr, WeatherData } from "./types";
 import { renderWeather } from "./ui/weather.ui";
 import { jokesService } from "./services/jokesService";
@@ -10,6 +10,7 @@ let jokesArr: JokesArr = [];
 
 const init = async() => {
     try {
+        showLoading();
         const [jokeResult, weatherResult] = await Promise.allSettled([jokesService.loadJoke(), weatherService.loadWeather()]);
 
         joke = jokeResult.status === 'fulfilled' ? jokeResult.value : null;
@@ -17,12 +18,14 @@ const init = async() => {
 
         weather? renderWeather(weather) : '';
         joke? renderJoke(joke) : '';
+        hideLoading();
     } catch (error) {
         console.error("Error:", error);
     }
 }
 
 const loadNextJoke = async() => {
+    showLoading();
     if (joke){
         const jokeToReport: Joke = {
             value: joke.value,
@@ -33,6 +36,7 @@ const loadNextJoke = async() => {
     }
     joke = await jokesService.loadJoke();
     renderJoke(joke);
+    hideLoading();
 }
 
 const scoreButtons = document.getElementById('score-buttons');

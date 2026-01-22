@@ -56,3 +56,15 @@ export const renderJokesHistory = (jokesArr: JokesArr) => {
 export const closeJokesHistory = () => {
     modal? modal.close() : '';
 }
+
+const loadingScreen = document.getElementById('loading-screen') as HTMLDivElement;
+
+export const showLoading = (): void => {
+    loadingScreen.classList.remove('hidden');
+}
+
+export const hideLoading = (): void => {
+    setTimeout(()=>{
+        loadingScreen.classList.add('hidden');
+    }, 200)
+}
